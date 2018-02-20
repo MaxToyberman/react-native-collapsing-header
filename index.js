@@ -25,7 +25,13 @@ class CollapsingHeader extends Component {
         const headerPosition = this.state.scrollY.interpolate({
             inputRange: [0, this.HEADER_SCROLL_DISTANCE],
             outputRange: [0, - this.HEADER_SCROLL_DISTANCE],
-            extrapolate: 'clamp' // clamp so translateY can’t go beyond -160
+            extrapolate: 'clamp' // clamp so translateY can’t go beyond -1199
+        })
+
+        const opacity = this.state.scrollY.interpolate({
+            inputRange: [0, HEADER_SCROLL_DISTANCE],
+            outputRange: [1, 0],
+            extrapolate: 'clamp'
         })
 
         return (
