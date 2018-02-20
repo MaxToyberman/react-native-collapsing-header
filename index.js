@@ -35,7 +35,7 @@ class CollapsingHeader extends Component {
                         translateY: headerPosition
                     }]
                 }]} >
-                    {this.props.header()}
+                    {this.props.header}
                 </Animated.View>
 
                 <Animated.ScrollView
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
 
 CollapsingHeader.propTypes = {
-    header: PropTypes.func,
+    header: PropTypes.any,
     headerMaxHeight: PropTypes.number,
     headerMinHeight: PropTypes.number,
     scrollEventThrottle: PropTypes.number
