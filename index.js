@@ -1,7 +1,10 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Animated, ScrollView, StyleSheet, View, Dimensions, Text, PanResponder} from 'react-native'
+import {Animated, ScrollView, StyleSheet, View, Dimensions, Text, PanResponder} from 'react-native';
+
+
+const HEADER_MAX_HEIGHT = 199;
 
 class CollapsingHeader extends Component {
 
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        height: this.props.headerMaxHeight,
+        height: HEADER_MAX_HEIGHT,
         width,
     },
     contentContainer: {
