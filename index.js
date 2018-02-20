@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import {Animated, ScrollView, StyleSheet, View, Dimensions, Text, PanResponder} from 'react-native';
 
 
+const {width} = Dimensions.get('window')
+
+
 const HEADER_MAX_HEIGHT = 199;
 
 class CollapsingHeader extends Component {
