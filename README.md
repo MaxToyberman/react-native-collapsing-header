@@ -4,7 +4,7 @@
 ## Usage
 ```javascript
 import CollapsingHeader from 'react-native-collapsing-header';
-
+import Text from 'react-native';
 
 export default class Example extends Component { 
 
