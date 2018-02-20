@@ -18,12 +18,12 @@ export default class Example extends Component {
 	render() {
 		return (
 			<CollapsingHeader
-            	header={<Header />} // required
+            			header={<Header />} // required
 				scrollEventThrottle={16} // 16 is default value (Optional)
 				headerMaxHeight={199} // 199 is default value (Optional)
 				headerMinHeight={117} // 117 is default value (Optional)
-            >
-			 <Text>Your ScrollView body items</Text>
+           		 >
+			 	<Text>Your ScrollView body items</Text>
 			</CollapsingHeader>
 		)
 	}
