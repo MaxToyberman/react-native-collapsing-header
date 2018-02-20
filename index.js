@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
 
 CollapsingHeader.propTypes = {
-    header: PropTypes.element,
+    header: PropTypes.func,
     headerMaxHeight: PropTypes.number,
     headerMinHeight: PropTypes.number,
     scrollEventThrottle: PropTypes.number
