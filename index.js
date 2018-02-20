@@ -35,7 +35,7 @@ class CollapsingHeader extends Component {
                         translateY: headerPosition
                     }]
                 }]} >
-                    {this.props.header}
+                    {this.props.header()}
                 </Animated.View>
 
                 <Animated.ScrollView
