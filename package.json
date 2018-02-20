@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-collapsing-header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React-Native collapsing header with nativedriver",
   "main": "index.js",
   "scripts": {

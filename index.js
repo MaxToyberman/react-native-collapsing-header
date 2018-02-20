@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Animated, StyleSheet, View, Dimensions} from 'react-native';
+import {Animated, ScrollView, StyleSheet, View, Dimensions, Text, PanResponder} from 'react-native';
 
 
 const {width} = Dimensions.get('window')
@@ -21,17 +21,16 @@ class CollapsingHeader extends Component {
     }
 
     render() {
-
         const headerPosition = this.state.scrollY.interpolate({
             inputRange: [0, this.HEADER_SCROLL_DISTANCE],
             outputRange: [0, - this.HEADER_SCROLL_DISTANCE],
-            extrapolate: 'clamp' // clamp so translateY can’t go beyond -1199
+            extrapolate: 'clamp' // clamp so translateY can’t go beyond -160
         })
 
         const opacity = this.state.scrollY.interpolate({
-            inputRange: [0, HEADER_SCROLL_DISTANCE],
+            inputRange: [0, this.HEADER_SCROLL_DISTANCE],
             outputRange: [1, 0],
-            extrapolate: 'clamp'
+            extrapolate: 'clamp' // clamp so translateY can’t go beyond -160
         })
 
         return (
@@ -41,7 +40,7 @@ class CollapsingHeader extends Component {
                         translateY: headerPosition
                     }]
                 }]} >
-                    {this.props.header}
+                    {this.props.header(opacity)}
                 </Animated.View>
 
                 <Animated.ScrollView
