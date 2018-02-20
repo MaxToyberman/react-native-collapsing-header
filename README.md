@@ -2,6 +2,13 @@
 # react-native-collapsing-header
 
 ## Usage
+
+npm install --save react-native-collapsing-header 
+
+OR
+
+yarn add react-native-collapsing-header
+
 ```javascript
 import CollapsingHeader from 'react-native-collapsing-header';
 import Text from 'react-native';
