@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Animated, ScrollView, StyleSheet, View, Dimensions, Text, PanResponder} from 'react-native';
+import {Animated, StyleSheet, View, Dimensions} from 'react-native';
 
 
 const {width} = Dimensions.get('window')
