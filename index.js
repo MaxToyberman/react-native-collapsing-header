@@ -44,7 +44,7 @@ class CollapsingHeader extends Component {
                 </Animated.View>
 
                 <Animated.ScrollView
-                    contentContainerStyle={styles.contentContainer} 
+                    contentContainerStyle={this.props.contentContainerStyle} 
                     scrollEventThrottle={this.props.scrollEventThrottle}
                     bounces={false}
                     style={{zIndex: -1}}
