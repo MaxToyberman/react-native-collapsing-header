@@ -75,6 +75,13 @@ const styles = StyleSheet.create({
         right: 0,
         height: HEADER_MAX_HEIGHT,
         width,
+        shadowColor: "rgba(1, 12, 39, 0.2)",
+        shadowOffset: {
+          width: 0,
+          height: 0
+        },
+        shadowRadius: 4,
+        shadowOpacity: 1
     },
     contentContainer: {
         width,
