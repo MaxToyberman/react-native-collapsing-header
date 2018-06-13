@@ -20,6 +20,11 @@ class CollapsingHeader extends Component {
         }
     }
 
+    onScroll = (event) => {
+
+    }
+
+
     render() {
         const headerPosition = this.state.scrollY.interpolate({
             inputRange: [0, this.HEADER_SCROLL_DISTANCE],
@@ -27,11 +32,12 @@ class CollapsingHeader extends Component {
             extrapolate: 'clamp' // clamp so translateY can’t go beyond -160
         })
 
-        const paddingSize = this.state.scrollY.interpolate({ 
+        const paddingSize = this.state.scrollY.interpolate({
             inputRange: [0, this.HEADER_SCROLL_DISTANCE],
             outputRange: [this.props.headerMaxHeight, this.props.headerMinHeight],
-            extrapolate: 'clamp' // clamp so 
+            extrapolate: 'clamp' // clamp so translateY can’t go beyond -160
         })
+
         const opacity = this.state.scrollY.interpolate({
             inputRange: [0, this.HEADER_SCROLL_DISTANCE],
             outputRange: [1, 0],
@@ -39,7 +45,7 @@ class CollapsingHeader extends Component {
         })
 
         return (
-            <Animated.View style={[styles.container,{paddingTop: paddingSize}]}>
+            <Animated.View style={[styles.container]}>
                 <Animated.View style={[styles.header,{height: this.props.headerMaxHeight},
                     {transform: [{
                         translateY: headerPosition
@@ -48,20 +54,21 @@ class CollapsingHeader extends Component {
                     {this.props.header(opacity)}
                 </Animated.View>
 
-                <Animated.ScrollView
-                    contentContainerStyle={this.props.contentContainerStyle} 
-                    scrollEventThrottle={this.props.scrollEventThrottle}
-                    bounces={false}
-                    style={{zIndex: -1}}
-                    onScroll={Animated.event(
-                        [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-                        {
-                          useNativeDriver: false
-                        },
-                      )}
-                >
-                    {this.props.children}
-                </Animated.ScrollView>
+                    <Animated.ScrollView
+                        contentContainerStyle={[{paddingTop: this.props.headerMaxHeight},this.props.contentContainerStyle]} 
+                        scrollEventThrottle={this.props.scrollEventThrottle}
+                        bounces={false}
+                        style={{zIndex: -1}}
+                        onScroll={Animated.event(
+                            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
+                            {
+                            useNativeDriver: true,
+                            listener: this.onScroll
+                            },
+                        )}
+                    >
+                        {this.props.children}
+                    </Animated.ScrollView>
             </Animated.View>)
     }
 }
