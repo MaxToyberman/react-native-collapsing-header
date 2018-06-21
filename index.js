@@ -26,6 +26,9 @@ class CollapsingHeader extends Component {
         const { showScrollShadow } = this.state;
         const { y } = event.nativeEvent.contentOffset;
 
+        this.props.scrollCallback && this.props.scrollCallback(event);
+
+        
         if (y > 1 && !showScrollShadow)
             this.setState({ showScrollShadow: true });
         else if (y <= 1 && showScrollShadow)
